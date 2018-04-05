@@ -18,5 +18,7 @@
                 public function delete($id);
 
                 public function findBy($field, $value, $columns = ['*']);
+
+                public function count($where = '1=1', $bindings = []);
             }
             

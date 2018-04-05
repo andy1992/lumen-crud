@@ -16,7 +16,7 @@ $router->get('/', function () use ($router) {
 });
 
 //$router->group(['middleware' => 'auth', 'prefix' => 'v1'], function() use ($router) {
-$router->group(['prefix' => 'v1', 'middleware' => 'auth'], function() use ($router) {
+$router->group(['prefix' => 'v1', 'middleware' => ['cors']], function() use ($router) {
 
     // Products data CRUD
     $router->get('/products', 'ProductsController@index');
@@ -25,6 +25,7 @@ $router->group(['prefix' => 'v1', 'middleware' => 'auth'], function() use ($rout
     $router->post('/products', 'ProductsController@store');
     $router->put('/products/{id}', 'ProductsController@update');
     $router->delete('/products/{id}', 'ProductsController@delete');
+    $router->get('/products/count', 'ProductsController@count');
 });
 
 $router->group(['prefix' => 'v1'], function() use ($router){

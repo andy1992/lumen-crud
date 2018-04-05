@@ -74,5 +74,11 @@ class DbProductRepository implements ProductRepositoryInterface {
         return Product::where($field, '=', $value)->first($columns);
     }
 
+    public function count($where = '1=1', $bindings = [])
+    {
+        return Product::whereRaw($where)
+            ->setBindings($bindings)
+            ->count();
+    }
 }
             

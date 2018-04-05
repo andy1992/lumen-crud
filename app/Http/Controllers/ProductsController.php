@@ -175,4 +175,16 @@ class ProductsController extends Controller
         }
         return response($result);
     }
+
+    public function count()
+    {
+        $where = '1=1';
+        $bindings = [];
+        if(Input::has('q')) {
+            $where = 'product_name LIKE ?';
+            $bindings = ['%' . Input::get('q') . '%'];
+        }
+
+        return response($this->product->count($where, $bindings));
+    }
 }
