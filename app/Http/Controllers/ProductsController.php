@@ -52,6 +52,13 @@ class ProductsController extends Controller
             'order_type'=> 'desc'
         ];
 
+        if(Input::has('order_by') && Input::has('order_type')) {
+            $params = [
+                'order_by' => Input::get('order_by'),
+                'order_type' => Input::get('order_type')
+            ];
+        }
+
         if(Input::has('q')) {
             $where = "product_name LIKE ?";
             $bindings = ['%' . Input::get('q') . '%'];
