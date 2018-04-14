@@ -10,6 +10,8 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -56,6 +58,29 @@ class UserController extends Controller
             $res['success'] = false;
             $res['message'] = 'Cannot find user!';
 
+            return response($res);
+        }
+    }
+
+    public function changePassword(Request $request, $id) {
+        $user = User::find($id);
+        if($user) {
+            if(Hash::check($request->input('old_password'), $user->password)) {
+                $hasher = app()->make('hash');
+                $password = $hasher->make($request->input('password'));
+                $user->password = $password;
+                $user = $user->update();
+                $res['success'] = true;
+                $res['message'] = $user;
+                return response($res);
+            } else {
+                $res['success'] = false;
+                $res['message'] = 'The old password didn\'t match.';
+                return response($res);
+            }
+        } else {
+            $res['success'] = false;
+            $res['message'] = 'Cannot update your password right now. Please try again in a few minutes.';
             return response($res);
         }
     }
