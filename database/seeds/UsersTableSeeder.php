@@ -16,14 +16,14 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->truncate();
         User::create([
-            'username'  => 'Andy Wijaya',
-            'email'     => 'andy.wijaya@rotimonas.com',
+            'username'  => 'User One',
+            'email'     => 'user.one@example.com',
             'password'  => Hash::make('P@ssw0rd')
         ]);
 
         User::create([
             'username'  => 'Administrator',
-            'email'     => 'admin@rotimonas.com',
+            'email'     => 'admin@example.com',
             'password'  => Hash::make('P@ssw0rd')
         ]);
     }
