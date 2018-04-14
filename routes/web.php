@@ -26,6 +26,7 @@ $router->group(['prefix' => 'v1', 'middleware' => ['cors', 'auth']], function() 
 
     $router->delete('/products/{id}', 'ProductsController@delete');
     $router->get('/product/count', 'ProductsController@count');
+    $router->post('/change-password/{id}', 'UserController@changePassword');
 });
 
 $router->group(['prefix' => 'v1', 'middleware' => ['cors']], function() use ($router){
