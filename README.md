@@ -1,5 +1,5 @@
 # lumen-crud
-CRUD API sample, built with lumen. Used in react-native-crud and angular5-crud repositories.
+CRUD API sample, built with lumen. Used in https://github.com/andy1992/react-native-crud and  https://github.com/andy1992/angular5-crud repositories.
 
 # Installation
 ## 1. Clone this repository, or download .zip file.
