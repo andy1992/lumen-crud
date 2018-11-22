@@ -9,9 +9,20 @@ CRUD API sample, built with lumen. Used in https://github.com/andy1992/react-nat
     composer install
 (assuming you have composer installed)
 
-## 3. Run the migration and data seeding:
+## 3. Setup your database connection in .env file
+
+```php
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=lumen-crud
+DB_USERNAME=root
+DB_PASSWORD=secret
+```
+
+## 4. Run the migration and data seeding:
     php artisan migrate --seed
     
-## 4. Run the project
+## 5. Run the project
     php -S localhost:8002 -t public
 (adjust it with your desired port)
