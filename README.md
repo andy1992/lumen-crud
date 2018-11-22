@@ -10,7 +10,7 @@ CRUD API sample, built with lumen. Used in https://github.com/andy1992/react-nat
 (assuming you have composer installed)
 
 ## 3. Setup your database connection in .env file
-
+Create the database in your environment, and setup the database connection in the .env file
 ```php
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
